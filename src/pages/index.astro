@@ -1,6 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import { getAllItemsFood } from "../lib/api";
+
+const allItems = await getAllItemsFood();
 ---
 
 <Layout title="Astro Restaurants.">
@@ -8,15 +11,7 @@ import Card from "../components/Card.astro";
     <h1>Welcome to <span class="text-gradient">Astro Restaurants</span></h1>
     <p class="instructions">The best Seafood restaurant in the world.</p>
     <ul role="list" class="link-card-grid">
-      <Card id="52959" title="Baked salmon with fennel & tomatoes" />
-      <Card id="52819" title="Cajun spiced fish tacos" />
-      <Card id="52944" title="Escovitch Fish" />
-      <Card id="53043" title="Fish fofos" />
-      <Card id="52802" title="Fish pie" />
-      <Card id="52918" title="Fish Stew with Rouille" />
-      <Card id="52764" title="Garides Saganaki" />
-      <Card id="53041" title="Grilled Portuguese sardines" />
-      <Card id="52773" title="Honey Teriyaki Salmon" />
+      {allItems.map((item) => <Card id={item.idMeal} title={item.strMeal} />)}
     </ul>
   </main>
 </Layout>
