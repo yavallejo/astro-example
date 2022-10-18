@@ -1,4 +1,5 @@
 ---
+import Layout from "../layouts/Layout.astro";
 export async function getStaticPaths() {
   const pages = [
     {
@@ -49,11 +50,18 @@ export async function getStaticPaths() {
 const { title, text } = Astro.props;
 ---
 
-<html>
-  <head>
-    <title>{title}</title>
-  </head>
-  <body>
-    <h1>{title}</h1>
-  </body>
-</html>
+<Layout title={title}>
+<main class="mx-auto p-6 max-w-4xl">
+  <h1 class="m-0 font-semibold text-5xl text-gradient">{title}</h1>
+</main>
+</Layout>
+
+<style>
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+</style>
