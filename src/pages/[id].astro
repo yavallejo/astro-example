@@ -1,0 +1,51 @@
+---
+export async function getStaticPaths() {
+  const pages = [
+    {
+      id: "52959",
+      title: "Baked salmon with fennel & tomatoes",
+    },
+    {
+      id: "52819",
+      title: "Cajun spiced fish tacos",
+    },
+    {
+      id: "52944",
+      title: "Escovitch Fish",
+    },
+    {
+      id: "53043",
+      title: "Fish fofos",
+    },
+    {
+      id: "52918",
+      title: "Fish pie",
+    },
+    {
+      id: "53041",
+      title: "Fish Stew with Rouille",
+    },
+    {
+      id: "52773",
+      title: "Escovitch Fish",
+    },
+  ];
+  return pages.map(({ id, title }) => {
+    return {
+      params: { id },
+      props: { title },
+    };
+  });
+}
+
+const { title, text } = Astro.props;
+---
+
+<html>
+  <head>
+    <title>{title}</title>
+  </head>
+  <body>
+    <h1>{title}</h1>
+  </body>
+</html>
