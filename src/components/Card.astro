@@ -2,13 +2,17 @@
 export interface Props {
   title: string;
   id: string;
+  thumbnail: string;
 }
 
-const { title, id } = Astro.props;
+const { title, id, thumbnail } = Astro.props;
 ---
 
 <li class="link-card">
   <a href={id}>
+    <figure>
+      <img src={thumbnail} alt={title} />
+    </figure>
     <h2>
       {title}
       <span>&rarr;</span>
@@ -42,6 +46,7 @@ const { title, id } = Astro.props;
   }
   h2 {
     margin: 0;
+    margin-top: 9px;
     font-size: 1.25rem;
     transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   }

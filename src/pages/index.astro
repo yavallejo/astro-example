@@ -11,7 +11,15 @@ const allItems = await getAllItemsFood();
     <h1>Welcome to <span class="text-gradient">Astro Restaurants</span></h1>
     <p class="instructions">The best Seafood restaurant in the world.</p>
     <ul role="list" class="link-card-grid">
-      {allItems.map((item) => <Card id={item.idMeal} title={item.strMeal} />)}
+      {
+        allItems.map((item) => (
+          <Card
+            id={item.idMeal}
+            thumbnail={item.strMealThumb}
+            title={item.strMeal}
+          />
+        ))
+      }
     </ul>
   </main>
 </Layout>
